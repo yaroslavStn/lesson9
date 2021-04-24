@@ -5,29 +5,30 @@ public class BestFriend implements IHumanLifecycleObserver {
 
 
     @Override
-    public void onBirth(LocalDate date, boolean gender, String name, float weight, int height) {
+    public void onBirth(onBirthParam birthParam) {
         System.out.println(
                 role +
                         " мой друг "
-                        + name
+                        + birthParam.name
                         + " родился "
-                        + date.toString()
-                        + (gender ? ", он отличный парень" : ", она классная девченка")
+                        + birthParam.date.toString()
+                        + (birthParam.gender ? ", он отличный парень" : ", она классная девченка")
         );
     }
 
     @Override
-    public void onWentToKindergarten(LocalDate date, int groupNum, String teacherName) {
+    public void onWentToKindergarten(onWentToKindergartenParam wentToKindergartenParam) {
 
     }
 
+
     @Override
-    public void onHumanWentSchool(LocalDate date, int schoolNum, char course) {
+    public void onHumanWentSchool(onHumanWentSchoolParam schoolParam) {
         System.out.println(
                 role +
-                        date
+                        schoolParam.date
                         + " мы вместе пошли в первый класс "
-                        + schoolNum
+                        + schoolParam.schoolNum
                         + " школу, в нашем дворе."
 
         );
@@ -35,84 +36,84 @@ public class BestFriend implements IHumanLifecycleObserver {
     }
 
     @Override
-    public void onHumanWentUniversity(LocalDate date, String universityName, String faculty, int rating) {
+    public void onHumanWentUniversity(onHumanWentUniversityParam universityParam) {
         System.out.println(
                 role +
                         " мы решили поступить в "
-                        + universityName
+                        + universityParam.universityName
                         + " на факультет "
-                        + faculty
+                        + universityParam.faculty
         );
     }
 
     @Override
-    public void onHumanGotJob(LocalDate date, String position, double salary) {
+    public void onHumanGotJob(onHumanGotJobParam jobParam) {
         System.out.println(
                 role +
                         "в "
-                        + date.getYear()
+                        + jobParam.date.getYear()
                         + " году устроился на работу на позицию "
-                        + position
+                        + jobParam.position
                         + " с зарплатой "
-                        + salary
+                        + jobParam.salary
                         + "у.е."
         );
 
     }
 
     @Override
-    public void onHumanMadeFamily(LocalDate date, String spouseName, int spouseAge) {
+    public void onHumanMadeFamily(onHumanMadeFamilyParam familyParam) {
         System.out.println(
                 role
                         + " я был свидетелем на свадьбе с "
-                        + spouseName
+                        + familyParam.spouseName
                         + " "
-                        + spouseAge
+                        + familyParam.spouseAge
                         + "лет, свадьба состоялась "
-                        + date.toString()
+                        + familyParam.date.toString()
         );
     }
 
     @Override
-    public void onHumanCreateChild(LocalDate date, boolean gender, String name, float weight, int height) {
+    public void onHumanCreateChild(onHumanCreateChildParam childParam) {
         System.out.println(
                 role +
-                        date.toString()
+                        childParam.date.toString()
                         + " родился "
-                        + (gender ? "мальчик" : "девочка")
+                        + (childParam.gender ? "мальчик" : "девочка")
                         + " его назвали "
-                        + name
-                        + (gender ? " он " : " она ")
+                        + childParam.name
+                        + (childParam.gender ? " он " : " она ")
                         + "родился здоровым: "
-                        + String.format("%.1f кг, ", weight)
-                        + height
+                        + String.format("%.1f кг, ", childParam.weight)
+                        + childParam.height
                         + "см."
         );
     }
 
 
     @Override
-    public void onHumanRetired(LocalDate date, String position, double lastSalary, double benefit) {
+    public void onHumanRetired(onHumanRetiredParam retiredParam) {
         System.out.println(
                 role +
                         "Карьера была весьма успеышной, к пенсии удалось дослужится до"
-                        + position
+                        + retiredParam.position
                         + " с зп "
-                        + lastSalary
+                        + retiredParam.lastSalary
                         + " у.е.. Карьера завершилась в "
-                        + date.getYear()
+                        + retiredParam.date.getYear()
         );
 
     }
 
     @Override
-    public void onHumanDied(LocalDate date, boolean natural, String locate) {
+    public void onHumanDied(onHumanDiedParam diedParam) {
         System.out.println(
                 role +
                         "В "
-                        + date.getYear()
-                        + (natural ? " скоропостижно скончался в " : " был коварно убит в ")
-                        + locate
+                        + diedParam.date.getYear()
+                        + (diedParam.natural ? " скоропостижно скончался в " : " был коварно убит в ")
+                        + diedParam.locate
         );
 
     }

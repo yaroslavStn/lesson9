@@ -6,109 +6,109 @@ public class Mother implements IHumanLifecycleObserver {
 
 
     @Override
-    public void onBirth(LocalDate date, boolean gender, String name, float weight, int height) {
+    public void onBirth(onBirthParam birthParam) {
         System.out.println(
                 role +
-                        date.toString()
+                        birthParam.date.toString()
                         + " У меня родился "
-                        + (gender ? "мальчик" : "девочка")
+                        + (birthParam.gender ? "мальчик" : "девочка")
                         + " с весом "
-                        + String.format("%.1f, кг", weight)
+                        + String.format("%.1f, кг", birthParam.weight)
                         + " ростом "
-                        + height
+                        + birthParam.height
                         + " cm, я назвала его"
-                        + name
+                        + birthParam.name
         );
     }
 
     @Override
-    public void onWentToKindergarten(LocalDate date, int groupNum, String teacherName) {
+    public void onWentToKindergarten(onWentToKindergartenParam wentToKindergartenParam) {
         System.out.println(
                 role +
-                        date.toString()
+                       wentToKindergartenParam.date.toString()
                         + " я отдала его в "
-                        + groupNum
+                        + wentToKindergartenParam.groupNum
                         + " группу местного садика, его воспитателя звали"
-                        + teacherName
+                        + wentToKindergartenParam.teacherName
         );
 
     }
 
     @Override
-    public void onHumanWentSchool(LocalDate date, int schoolNum, char course) {
+    public void onHumanWentSchool(onHumanWentSchoolParam wentSchoolParam) {
         System.out.println(
                 role +
-                        date.toString()
+                        wentSchoolParam.date.toString()
                         + " он пошел в "
-                        + schoolNum
+                        + wentSchoolParam.schoolNum
                         + " школу, в 1-"
-                        + course
+                        + wentSchoolParam.course
                         + " класс."
         );
 
     }
 
     @Override
-    public void onHumanWentUniversity(LocalDate date, String universityName, String faculty, int rating) {
+    public void onHumanWentUniversity(onHumanWentUniversityParam wentUniversityParam) {
         System.out.println(
                 role +
-                        date.toString()
+                        wentUniversityParam.date.toString()
                         + " он с отличием окончил школу и поступил в "
-                        + universityName
+                        + wentUniversityParam.universityName
                         + " на факультет: "
-                        + faculty
+                        + wentUniversityParam.faculty
                         + "с прохожным баллом "
-                        + rating
+                        + wentUniversityParam.rating
         );
     }
 
     @Override
-    public void onHumanGotJob(LocalDate date, String position, double salary) {
+    public void onHumanGotJob(onHumanGotJobParam gotJobParam) {
         System.out.println(
                 role +
-                        date.toString()
+                        gotJobParam.date.toString()
                         + "устроился на работу "
-                        + position
+                        + gotJobParam.position
                         + " поначалу ему платили немного, всего"
-                        + salary
+                        + gotJobParam.salary
                         + "у.е."
         );
 
     }
 
     @Override
-    public void onHumanMadeFamily(LocalDate date, String spouseName, int spouseAge) {
+    public void onHumanMadeFamily(onHumanMadeFamilyParam familyParam) {
         System.out.println(
                 role +
-                        date.toString()
+                        familyParam.date.toString()
                         + " мой ребенок создал семью с"
-                        + spouseName
+                        + familyParam.spouseName
                         + "ей на тот момент было"
-                        + spouseAge
+                        + familyParam.spouseAge
                         + "лет."
         );
     }
 
     @Override
-    public void onHumanCreateChild(LocalDate date, boolean gender, String name, float weight, int height) {
+    public void onHumanCreateChild(onHumanCreateChildParam createChildParam) {
         System.out.println(
                 role +
-                        date.toString()
+                       createChildParam.date.toString()
                         + " у них появился ребенок, "
-                        +  (gender ? "мальчик" : "девочка")
+                        +  (createChildParam.gender ? "мальчик" : "девочка")
                         + " по имени"
-                        + name
+                        + createChildParam.name
         );
     }
 
 
     @Override
-    public void onHumanRetired(LocalDate date, String position, double lastSalary, double benefit) {
+    public void onHumanRetired(onHumanRetiredParam retiredParam) {
 
     }
 
     @Override
-    public void onHumanDied(LocalDate date, boolean natural, String locate) {
+    public void onHumanDied(onHumanDiedParam diedParam) {
 
     }
 }
